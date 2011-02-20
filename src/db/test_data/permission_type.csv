@@ -1,0 +1,11 @@
+"PERMISSION_TYPE_ID","CODE","DISPLAY_NAME","DISPLAY_ORDER"
+601,"CREATE","Create",1
+603,"DELETE","Delete",1
+604,"VIEW","View",1
+623,"EDIT","Edit",0
+625,"SUBMIT","Submit",0
+626,"NOTIFY","Notify",0
+627,"SCHEDULE","Schedule",0
+628,"APPROVE","Approve",0
+629,"CANCEL","Cancel",0
+630,"CONFIRM","Confirm",0

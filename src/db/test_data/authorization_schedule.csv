@@ -1,0 +1,9 @@
+authorization_schedule_id,status,version
+1001,	ACTIVE,	2
+1003,	ACTIVE,	3
+1101,	PENDING,4
+1103,	PENDING,5
+1201,	ACTIVE,	6
+1301,	ACTIVE,	7
+1302,	ACTIVE,	8
+1401,	ACTIVE,	9

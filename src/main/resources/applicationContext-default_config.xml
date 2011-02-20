@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+  <bean id="corePropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="properties">
+      <value>
+        ##############################################################################
+        # Configurable application core properties
+        ##############################################################################
+        # SMTP server
+        email.smtp.host=CSCSRVCHN6APP28
+        email.smtp.port=25
+
+        # 'from' address for system generated emails.
+        email.from=smoportal@fedcsc.com
+
+        # Home page URL to be used in emails.
+        email.url=http://localhost:10080/smoportal
+      </value>
+    </property>
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+  </bean>
+  <bean id="webPropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="properties">
+      <value>
+        ###############################################################################
+        # Configurable web properties for this application
+        ###############################################################################
+        # Wicket application configuration type. Either development or deployment.
+        wicket.configuration=development
+
+        # HTTP and HTTPS ports for Wicket HttpsConfig
+        http.port=10080
+        https.port=10443
+
+        # SCSTR URL
+        scstr.url=http://localhost:50080/scstr
+
+        ###############################################################################
+        # Configurable CAS related properties for this application
+        ###############################################################################
+
+        # URL that identifies this application as a service to CAS
+        cas.serviceProperties.service=https://localhost:10443/smoportal/j_spring_cas_security_check
+
+        # CAS login URL
+        cas.casEntryPoint.loginUrl=https://localhost:9443/cas/login
+
+        # CAS URL required for ticket validation
+        cas.ticketValidator.casServerUrlPrefix=https://localhost:9443/cas
+
+        # CAS logout URL (link to the home page will be displayed on the cas logout page)
+        cas.logout.url=https://localhost:9443/cas/logout?url=http://localhost:10080/smoportal
+
+        # CAS Authentication Failed URL
+        cas.failed.page=/casFailed 
+        </value>
+    </property>
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+  </bean>
+  <bean id="servicePropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="properties">
+      <value>
+      smoportal.client.url=http://cscsrvchn6app25:8080/smoportalwsv1
+      clpss.client.url=http://cscsrvchn6app25:8080/clpss-services
+      </value>
+     </property>
+     <property name="ignoreUnresolvablePlaceholders" value="true" />
+  </bean>
+  <bean id="dbPropertyPlaceholderConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="properties">
+      <value>
+        ###############################################################################
+        # Configurable database related properties
+        ###############################################################################
+        jdbc.driverClassName=org.h2.Driver
+        jdbc.url=jdbc:h2:mem:;IGNORECASE=TRUE;INIT=RUNSCRIPT FROM 'src/db/test_data/h2-init.sql'
+        #jdbc.driverClassName=oracle.jdbc.driver.OracleDriver
+        #jdbc.url=jdbc:oracle:thin:@cscsrvchn6app29:1521:devdb1
+        jdbc.username=smoportal
+        jdbc.password=smoportal
+      </value>
+    </property>
+    <property name="ignoreUnresolvablePlaceholders" value="true" />
+  </bean>
+</beans>

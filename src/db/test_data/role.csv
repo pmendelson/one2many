@@ -1,0 +1,21 @@
+ROLE_ID,ROLE_NAME,FUNCTIONAL,ACCESS_LEVEL_APP_TYPE_CODE,URL,DISPLAY_NAME,DISPLAY_ORDER
+501,ROLE_SMOPORTAL_USER,0,NA,,,1
+502,ROLE_SMOPORTAL_USER_ADMIN,1,O,secure/manageUsers,Manage SMO Portal Users,1
+503,ROLE_SMOPORTAL_DATA_ADMIN,1,NA,secure/manageData,Manage SMO Portal Data,1
+511,ROLE_MA_RESEARCHER,1,S,http://cscsrvchn6app25:8080/madb,Research Modified Analyses,1
+512,ROLE_CLPSS_DATA_ADMIN,1,O,http://cscsrvchn6app25:8080/clpss,Manage CLPSS Data,1
+521,ROLE_ASR_REQUESTOR,1,S,http://cscsrvchn6app25:8080/asr,View/Create/Edit Requests,1
+522,ROLE_ASR_APPROVER,1,O,http://cscsrvchn6app25:8080/asr,Approve Requests,1
+523,ROLE_ASR_SCHEDULER,1,NA,http://cscsrvchn6app25:8080/asr/secure/scheduleRequest,Schedule Requests,1
+524,ROLE_ASR_LAB_ASSIGNMENT_VIEWER,1,S,http://cscsrvchn6app25:8080/asr/secure/viewLabAssignment,View Lab Assignment,1
+525,ROLE_ASR_REQUEST_VIEWER,1,S,http://cscsrvchn6app25:8080/asr,View Requests,1
+531,ROLE_Lab_User,1,NA,http://localhost:11080/exes/labHome.do,Submit and Inspect Data,1
+532,ROLE_Mailroom1_User,1,NA,http://localhost:11080/exes/mailRoomHome.do,Track and Shelve Data Packages,2
+533,ROLE_Mailroom2_User,1,NA,http://localhost:11080/exes/mailRoomHome.do,Process Failed SDGs/ Track Data Packages,3
+541,ROLE_Review_Chemist,1,NA,http://localhost:11080/exes/chemistHome.do,Review Data Packages/ View Defects,4
+542,ROLE_QC_Chemist,1,NA,http://localhost:11080/exes/chemistHome.do,QC Reviewed Data Packages/ Generate Final Deliverables,5
+543,ROLE_Coordinator_User,1,NA,http://localhost:11080/exes/coordinatorHome.do,Resolve Problems/ Send Reports,6
+544,ROLE_NFG_Coordinator_User,1,NA,http://localhost:11080/exes/coordinatorHome.do,Check Out / Send NFG Reports,7
+545,ROLE_NFG_Admin_User,1,NA,http://localhost:11080/exes/nfgAdminHome.do,View Defects/ Review and Reprocess Deliverables,8
+546,ROLE_EXES_Tester,1,NA,http://localhost:11080/exes/testerHome.do,Generate EXES Reports,9
+550,ROLE_EXES_Admin,1,NA,http://localhost:11080/exes/adminHome.do,Access All EXES tasks,10
