@@ -17,8 +17,16 @@ import org.avaje.one2many.domain.User;
 public class AuthorizationScheduleMappingTest extends AbstractEBeanDaoTestCase {
     private static final Logger logger = LoggerFactory.getLogger(AuthorizationScheduleMappingTest.class);
 
-    @Before
-    public void setUp() throws Exception {
+    @Test
+    public void shouldFindListOfRoles() {
+        logger.debug("start listOfRoles()");
+        List<RoleAssignment> roles = null;
+        try {
+            roles = ebeanServer.find(RoleAssignment.class).where().eq("parent.id", 1201).findList();
+        } catch (Exception e) {
+            logger.warn("find roles", e);
+        }
+        logger.debug("found {}", roles.size());
     }
 
     @Test
@@ -31,47 +39,32 @@ public class AuthorizationScheduleMappingTest extends AbstractEBeanDaoTestCase {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        Assert.assertNotNull(sched);
-        logger.debug("pre get assigned roles");
-        int nroles=-1;
-        try {
-            nroles = sched.getAssignedRoles().size();
-        } catch (Exception e) {
-            logger.warn("count roles",e);
-        }
-        logger.debug("nroles={}",nroles);
+        validateSchedule(sched, "direct ");
         logger.debug("passed shouldFindAuthorizationSchedule()  " + sched);
     }
 
     @Test
     public void shouldFindAuthorizationScheduleViaMappedJoin() {
         logger.debug("start shouldFindAuthorizationScheduleViaMappedJoin()");
-        User testUser = ebeanServer.find(User.class,1201);
+        User testUser = ebeanServer.find(User.class, 1201);
         AuthorizationSchedule authorizationSchedule = testUser.getAuthorizationSchedule();
         logger.debug("authorizationSchedule=" + authorizationSchedule);
-        Assert.assertNotNull(authorizationSchedule);
-        Set<RoleAssignment> roles=null;
-        try {
-            roles = authorizationSchedule.getAssignedRoles();
-        } catch (Exception e) {
-            logger.warn("count roles via mapped join",e);
-            Assert.fail();
-        }
-        Assert.assertNotNull(roles);
-        logger.debug("roles={}", roles.size());
+        validateSchedule(authorizationSchedule, "byMapping");
         logger.debug("status=" + authorizationSchedule.getStatus());
         logger.debug("passed shouldFindAuthorizationSchedule()  " + authorizationSchedule.getId());
     }
-    
-    @Test
-    public void shouldFindListOfRoles() {
-        logger.debug("start listOfRoles()");
-        List<RoleAssignment> roles=null;
+
+    private void validateSchedule(AuthorizationSchedule sched, String label) {
+        Assert.assertNotNull(label, sched);
+        logger.debug(label + ": pre get assigned roles");
+        int nroles = -1;
         try {
-            roles = ebeanServer.find(RoleAssignment.class).where().eq("parent_id",1201).findList();
+            final Set<RoleAssignment> assignedRoles = sched.getAssignedRoles();
+            if(assignedRoles!=null)
+            nroles = assignedRoles.size();
         } catch (Exception e) {
-            logger.warn("find roles",e);
+            logger.warn(label + ": count roles", e);
         }
-        logger.debug("found {}",roles.size());
+        logger.debug(label + ": nroles={}", nroles);
     }
 }

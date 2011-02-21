@@ -64,7 +64,6 @@ public class User implements Serializable {
     private boolean incomplete;
     private Organization organization;
     private AuthorizationSchedule authorizationSchedule;
-    private Set<UserPasswordIdx> userPasswordIdxes;
 
     public User() {
     }
@@ -365,22 +364,10 @@ public class User implements Serializable {
         this.organization = organization;
     }
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-    public Set<UserPasswordIdx> getUserPasswordIdxes() {
-        if (userPasswordIdxes == null) {
-            userPasswordIdxes = new LinkedHashSet<UserPasswordIdx>();
-        }
-        return userPasswordIdxes;
-    }
-
-    public void setUserPasswordIdxes(Set<UserPasswordIdx> userPasswordIdxes) {
-        this.userPasswordIdxes = userPasswordIdxes;
-    }
-
     /** The complete set of permissions assigned or pending assignment for this user */
     @OneToOne()
     @JoinColumn(name = "authorization_schedule_id", referencedColumnName="authorization_schedule_id", unique = true, nullable = false, updatable = true)
-    public AuthorizationSchedule getAuthorizationSchedule() {
+    public AuthorizationSchedule () {
         return authorizationSchedule;
     }
 

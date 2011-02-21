@@ -145,8 +145,8 @@ alter table permission_assignment add constraint fk_permission_assignment_userR_
 create index ix_permission_assignment_userR_5 on permission_assignment (role_assignment_id);
 alter table permission_assignment add constraint fk_permission_assignment_permi_6 foreign key (PERMISSION_ID) references PERMISSION (PERMISSION_ID) on delete restrict on update restrict;
 create index ix_permission_assignment_permi_6 on permission_assignment (PERMISSION_ID);
-alter table role_assignment add constraint fk_role_assignment_car_7 foreign key (PARENT_ID) references authorization_schedule (authorization_schedule_id) on delete restrict on update restrict;
-create index ix_role_assignment_car_7 on role_assignment (PARENT_ID);
+alter table role_assignment add constraint fk_role_assignment_parent_7 foreign key (PARENT_ID) references authorization_schedule (authorization_schedule_id) on delete restrict on update restrict;
+create index ix_role_assignment_parent_7 on role_assignment (PARENT_ID);
 alter table role_assignment add constraint fk_role_assignment_role_8 foreign key (ROLE_ID) references ROLE (ROLE_ID) on delete restrict on update restrict;
 create index ix_role_assignment_role_8 on role_assignment (ROLE_ID);
 alter table USER_T add constraint fk_USER_T_organization_9 foreign key (USER_ID) references ORGANIZATION (ORGANIZATION_ID) on delete restrict on update restrict;

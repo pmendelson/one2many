@@ -36,7 +36,7 @@ public class RoleAssignment implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private Long id;
-    private AuthorizationSchedule car;
+    private AuthorizationSchedule parent;
     private Role role;
     private AssignmentStatus status;
     private AuthorizationSource authorizationSource;
@@ -58,7 +58,7 @@ public class RoleAssignment implements Serializable {
      */
     public RoleAssignment(AuthorizationSchedule user, Role role) {
         this();
-        this.car = user;
+        this.parent = user;
         setRole(role);
         this.status = AssignmentStatus.PENDING;
     }
@@ -85,13 +85,13 @@ public class RoleAssignment implements Serializable {
     }
 
     @ManyToOne
-    @JoinColumn(name = "PARENT_ID"/*,referencedColumnName="authorization_schedule_id"*/)
-    public AuthorizationSchedule getCar() {
-        return car;
+    @JoinColumn(name = "PARENT_ID",referencedColumnName="authorization_schedule_id")
+    public AuthorizationSchedule getParent() {
+        return parent;
     }
 
-    public void setCar(AuthorizationSchedule parent) {
-        this.car = parent;
+    public void setParent(AuthorizationSchedule parent) {
+        this.parent = parent;
     }
 
     @ManyToOne

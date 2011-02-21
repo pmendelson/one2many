@@ -40,7 +40,7 @@ import com.avaje.ebean.annotation.CacheStrategy;
 //})
 @Entity
 @Table(name = "ROLE")
-@CacheStrategy(readOnly=true,warmingQuery="where FUNCTIONAL=true order by DISPLAY_ORDER,DISPLAY_NAME,ROLE_NAME,ROLE_ID")
+@CacheStrategy(readOnly=true/*,warmingQuery="where FUNCTIONAL=true order by DISPLAY_ORDER,DISPLAY_NAME,ROLE_NAME,ROLE_ID"*/)
 public class Role implements Serializable {
 
     private static final long serialVersionUID = 1L;
