@@ -18,7 +18,6 @@
       <list>
         <value>org.avaje.one2many.domain.Organization</value>
         <value>org.avaje.one2many.domain.User</value>
-        <value>org.avaje.one2many.domain.UserPasswordIdx</value>
         <value>org.avaje.one2many.domain.Location</value>
         <value>org.avaje.one2many.domain.AuthorizationSchedule</value>
         <value>org.avaje.one2many.domain.RoleAssignment</value>

@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 import com.avaje.ebean.EbeanServer;
 
 @ContextConfiguration(locations = { "/applicationContext.xml", "/applicationContext-default_config.xml" })
-public class AbstractEBeanDaoTestCase extends AbstractJUnit4SpringContextTests {
+public abstract class AbstractEBeanDaoTestCase extends AbstractJUnit4SpringContextTests {
     @Autowired
     protected EbeanServer ebeanServer;
 

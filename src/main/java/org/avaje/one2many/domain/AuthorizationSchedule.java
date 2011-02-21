@@ -33,7 +33,7 @@ public class AuthorizationSchedule implements Serializable {
     private Long id;
     // private Long parentId;
     private AccountStatus status;
-    private Set<RoleAssignment> userRoles;
+    private Set<RoleAssignment> assignedRoles;
     private Integer version;
 
     public AuthorizationSchedule() {
@@ -179,11 +179,11 @@ public class AuthorizationSchedule implements Serializable {
 
     @OneToMany(mappedBy = "parent")//, cascade = CascadeType.ALL, orphanRemoval = true)
     public Set<RoleAssignment> getAssignedRoles() {
-        return userRoles;
+        return assignedRoles;
     }
 
     public void setUserRoles(Set<RoleAssignment> userRoles) {
-        this.userRoles = userRoles;
+        this.assignedRoles = userRoles;
     }
     //
     // @Transient

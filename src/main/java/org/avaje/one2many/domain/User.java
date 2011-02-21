@@ -367,7 +367,7 @@ public class User implements Serializable {
     /** The complete set of permissions assigned or pending assignment for this user */
     @OneToOne()
     @JoinColumn(name = "authorization_schedule_id", referencedColumnName="authorization_schedule_id", unique = true, nullable = false, updatable = true)
-    public AuthorizationSchedule () {
+    public AuthorizationSchedule getAuthorizationSchedule() {
         return authorizationSchedule;
     }
 

@@ -51,7 +51,7 @@ public class AuthorizationScheduleMappingTest extends AbstractEBeanDaoTestCase {
         logger.debug("authorizationSchedule=" + authorizationSchedule);
         validateSchedule(authorizationSchedule, "byMapping");
         logger.debug("status=" + authorizationSchedule.getStatus());
-        logger.debug("passed shouldFindAuthorizationSchedule()  " + authorizationSchedule.getId());
+        logger.debug("passed shouldFindAuthorizationScheduleViaMappedJoin()  " + authorizationSchedule.getId());
     }
 
     private void validateSchedule(AuthorizationSchedule sched, String label) {

@@ -136,6 +136,7 @@
     </dependency>
   </dependencies>
   <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <ebean.version>2.7.3-SNAPSHOT</ebean.version>
   </properties>
 
